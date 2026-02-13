@@ -2,8 +2,6 @@ import email
 from multiprocessing import context
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-# from django.contrib.auth.models import User
-# from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm, PatientForm, PasswordResetForm
 from hospital.models import Hospital_Information, User, Patient 
 from doctor.models import Test, testCart, testOrder
@@ -35,7 +33,6 @@ from django.utils.html import strip_tags
 from django.views.decorators.csrf import csrf_exempt
 
 
-# Create your views here.
 @csrf_exempt
 def hospital_home(request):
     # .order_by('-created_at')[:6]
@@ -76,8 +73,6 @@ def edit_billing(request):
 def edit_prescription(request):
     return render(request, 'edit-prescription.html')
 
-# def forgot_password(request):
-#     return render(request, 'forgot-password.html')
 
 @csrf_exempt
 def resetPassword(request):

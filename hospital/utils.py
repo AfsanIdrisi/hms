@@ -52,8 +52,6 @@ def paginateHospitals(request, hospitals, results):
         hospitals = paginator.page(page)
         
     
-    # if there are many pages, we will see some at a time in the pagination bar (range window)
-    # leftIndex(left button) = current page no. - 4 
     leftIndex = (int(page) - 4)
     if leftIndex < 1:
         # if leftIndex is less than 1, we will start from 1
@@ -64,23 +62,8 @@ def paginateHospitals(request, hospitals, results):
         rightIndex = paginator.num_pages + 1
 
     custom_range = range(leftIndex, rightIndex)
-    # return custom_range, projects, paginator
     return custom_range, hospitals
 
-
-# def searchDepartmentDoctors(request, pk):
-    
-#     search_query = ''
-    
-#     if request.GET.get('search_query'):
-#         search_query = request.GET.get('search_query')
-        
-    
-#     departments = hospital_department.object.filter(hospital_department_id=pk).filter(
-#         Q(doctor__name__icontains=search_query) |  
-#         Q(doctor__department__icontains=search_query))
-    
-#     return departments, search_query
 
 def searchDepartmentDoctors(request, pk):
     

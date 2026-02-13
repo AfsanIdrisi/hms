@@ -97,7 +97,6 @@ WSGI_APPLICATION = 'healthstack.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -108,7 +107,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,7 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -139,7 +136,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/images/'
@@ -150,8 +146,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-### SSLCOMMERZ env variables
-#VARIABLE should be in capital letter.
 # STORE_ID = env('STORE_ID')
 # STORE_PASSWORD = env('STORE_PASSWORD')
 # STORE_NAME = env('STORE_NAME')
@@ -159,7 +153,6 @@ STORE_ID = ""
 STORE_PASSWORD = ""
 STORE_NAME = ""
 
-###Mailtrap env Variables
 SMTP_HOST = ""
 SMTP_PORT = ""
 SMTP_USER = ""
@@ -181,13 +174,10 @@ EMAIL_USE_SSL = False
 
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'hospital.User'
 
 
-# SESSION AGE 45 Minutes
 SESSION_COOKIE_AGE = 45*60
 SESSION_SAVE_EVERY_REQUEST = True

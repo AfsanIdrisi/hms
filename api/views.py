@@ -7,30 +7,26 @@ from doctor.models import Doctor_Information
 
 @api_view(['GET'])
 def getRoutes(request):
-    # Specify which urls (routes) to accept
     
     routes = [
         {'GET': '/api/hospital/'},
         {'GET': '/api/hospital/id'},
 
-        # to test built-in authentication - JSON web tokens have an expiration date
         {'POST': '/api/users/token'},
         {'POST': '/api/users/token/refresh'},
     ]
     return Response(routes)
 
-# @permission_classes([IsAuthenticated]) # set up a restricted route
 
 @api_view(['GET'])
 def getHospitals(request):
-    hospitals = Hospital_Information.objects.all() # query the database (get python object)
-    serializer = HospitalSerializer(hospitals, many=True) # convert python object to JSON object
-    # many=True because we are serializing a list of objects
+    hospitals = Hospital_Information.objects.all() 
+    serializer = HospitalSerializer(hospitals, many=True) 
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getHospitalProfile(request, pk):
     hospitals = Hospital_Information.objects.get(hospital_id=pk)
-    serializer = HospitalSerializer(hospitals, many=False) # many=False for a single object
+    serializer = HospitalSerializer(hospitals, many=False) 
     return Response(serializer.data)
